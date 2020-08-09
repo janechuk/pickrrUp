@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}{% endblock %}
+{% block content %}
+
+
+<h1 class="display-4">Today's Devotion</h1>
+
+
+
+<div class="container text-center" style="margin-top: 2em">
+    <p class="h4">{{ref}}</p>
+    <p class="h4 font-italic">{{text}}</p>
+</div>
+
+
+<div>
+    <img src="{{photoUrl}}" width="800" height="600">
+</div>
+
+
+</div>
+{% endblock %}
+
+
+<!-- <blockquote class="blockquote text-center">
+    <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+    <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
+</blockquote> -->
