@@ -11,14 +11,22 @@
     <title>{% block title %} {% endblock %}</title>
 </head>
 
-<body>
-    <div class="navbar navbar-light bg-info">
+<body style="background: url(https://image.freepik.com/free-vector/colorful-memphis-design-background-vector_53876-81744.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover">
+    <div class="navbar navbar-light bg-info ">
         <div class="navbar-container">
+            {% if session["username"] %}
+            <div class="navbar-brand"><a class="text-white" href={{"/users/{{user.username}}"}}>Dashboard</a></div>
+            {% else %}
             <div class="navbar-brand"><a class="text-white" href="/">PickrrUp</a></div>
+            {% endif %}
             <ul class="nav navbar-nav flex-row float-right">
                 {% if session["username"] %}
-                <li class="nav-item">
-                    <a class="nav-link pr-3 text-white" href="/logout">Logout</a>
+                <li class="nav-item ">
+                    <a class="nav-link pr-3 text-white " href="/logout">Logout</a>
                 </li>
                 {% else %}
                 <li class="nav-item">
@@ -39,6 +47,30 @@
 
         {% endblock %}
     </div>
+
+
+
+    <!-- Footer Section -->
+    <footer class=" footer mt-auto py-3 text-center">
+        <div class="container">
+            <p class='lead'><small></small></p>
+            <a href='https://www.freepik.com/vectors/background'>Background vector created by freepik -
+                www.freepik.com</a>
+            <hr>
+
+            <span class="text-muted">
+                <h5 class='display-6'>Get In Touch</h5>
+            </span>
+            <a target='_blank' href="https://www.linkedin.com/in/jane-chukwuelue/"><i class="fab fa-linkedin fa-2x"
+                    style="color: teal"></i></a>
+            <a target='_blank' href="https://github.com/janechuk "><i class="fab fa-github-square fa-2x"
+                    style="color: teal"></i></a>
+            <a href="mailto:jane-chuk@live.com"><i class="fas fa-envelope fa-2x" style="color: teal"></i></a>
+        </div>
+    </footer>
+    <!-- Footer Section End -->
+
+
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
@@ -51,3 +83,10 @@
 </body>
 
 </html>
+
+
+
+
+
+<!-- style="background-size: cover; background-position: center; background-repeat: no-repeat, no-repeat; background-image:
+url(https://image.freepik.com/free-vector/colorful-memphis-design-background-vector_53876-81744.jpg)" -->

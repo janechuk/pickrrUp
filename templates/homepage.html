@@ -3,13 +3,14 @@
 {% block title %}Homepage{% endblock %}
 {% block content %}
 
-<h1 class="display-4">Welcome to PickrrUp</h1>
-<p class="lead">Don't have an account? <a href="/register"> Register here</a></p>
-<form id="logIn_user" method="POST">
+<h2 class="display-4 my-5">Discover Inner Peace</h2>
 
+<h2 class="display-6 mb-4"> Live more | Breathe | Relax | Worry less</h2>
+<p class="lead">Don't have an account? <a href="/register"> Register here</a></p>
+<form id="logIn_user" method="GET" action="/login">
     <button class="btn btn-info" type="submit">Log In</button>
 </form>
-
+<div style="height: 500px;"></div>
 {% endblock %}
 
 

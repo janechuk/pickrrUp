@@ -3,7 +3,7 @@
 {% block title %}Log In{% endblock %}
 {% block content %}
 
-<h1 class="display-2">Log In</h1>
+<h1 class="display-4">Log In</h1>
 <p class="lead">Don't have an account? <a href="/register"> Register here</a></p>
 <form id="logIn_user" method="POST">
     {{ form.hidden_tag() }}
@@ -19,7 +19,10 @@ if field.widget.input_type != 'hidden' %}
     {% endfor %}
     </p>
     {% endfor %}
-    <button class="btn btn-primary" type="submit">Log In</button>
+    <button class="btn btn-info">Log In</button>
 </form>
+
+<div style="height: 500px;"></div>
+
 
 {% endblock %}

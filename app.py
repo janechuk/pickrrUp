@@ -1,12 +1,10 @@
 """Flask app for devotion app"""
 from flask import Flask, request, redirect, render_template, flash, jsonify, session, current_app
-from models import db, connect_db, User
+from user import db, connect_db, User
 from flask_debugtoolbar import DebugToolbarExtension
 from forms import RegisterUserForm, LogInUserForm
 import requests
-from secret import YOUTUBE_API_KEY
-# from isodate import parse_duration
-# Run in terminal --- pip install isodate
+
 
 
 app = Flask(__name__)
@@ -14,7 +12,7 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///PickrrUp'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_ECHO'] = True 
-
+app.config['TESTING'] = True 
 app.config['SECRET_KEY'] = "SECRET!"
 app.config['DEBUG_TB_INTERCEPT_REDIRECTS'] = False
 debug = DebugToolbarExtension(app)
@@ -23,7 +21,7 @@ connect_db(app)
 
 @app.route("/")
 def home_page():
-    """Redirects to /register"""
+    """Renders the home/landing page"""
 
     return render_template("homepage.html")
 
@@ -53,6 +51,32 @@ def register():
         return redirect(f"/users/{user.username}")
     else:
         return render_template("register.html", form=form)
+
+
+@app.route("/login", methods=["GET", "POST"])
+def logIn_user():
+    """Show a form that when submitted will log in an existing user"""
+    if "username" in session:
+        return redirect(f"/users/{session['username']}")
+
+    form = LogInUserForm()
+    if form.validate_on_submit():
+        username = form.username.data
+        password = form.password.data
+
+        # authenticate user
+        user = User.authenticate(username, password)
+        if user:
+            flash(f"Welcome back {user.username}!")
+            session["username"] = user.username
+            return redirect(f"/users/{user.username}")
+        else:
+            form.username.errors = ["Invalid name/password"]
+            return render_template("login.html", form=form)
+            
+    return render_template("login.html", form=form)
+
+
 
 @app.route("/users/<username>")
 def user_detail_page(username):
@@ -98,23 +122,13 @@ def breathe_page():
 
     return render_template("breathe.html")
 
-@app.route("/login", methods=["GET", "POST"])
-def logIn_user():
-    """Show a form that when submitted will log in an existing user."""
-    form = LogInUserForm()
-    if form.validate_on_submit():
-        username = form.username.data
-        password = form.password.data
 
-        # authenticate user
-        user = User.authenticate(username, password)
-        if user:
-            flash(f"Welcome back {user.username}!")
-            session["username"] = user.username
-            return redirect(f"/users/{user.username}")
-        else:
-            form.username.errors = ["Invalid name/password"]
-    return render_template("login.html", form=form)
+
+
+@app.route("/youtube")
+def youtube_page():
+        
+    return render_template('youtube.html')
 
 
 @app.route("/logout")
@@ -123,56 +137,3 @@ def logout():
     session.pop("username")
     flash("You are now logged out!")
     return redirect("/")
-
-
-
-
-
-
-@app.route('/youtube', methods=['GET', 'POST'])
-def youtube_search():
-    search_url = 'https://www.googleapis.com/youtube/v3/search'
-    video_url = 'https://www.googleapis.com/youtube/v3/videos'
-
-    videos = []
-
-    if request.method == 'POST':
-        search_params = {
-            'key' : 'YOUTUBE_API_KEY',
-            'q' : request.form.get('query'),
-            'part' : 'snippet',
-            'maxResults' : 9,
-            'type' : 'video'
-        }
-        print(r)
-        r = requests.get(search_url, params=search_params)
-
-        results = r.json()['items']
-
-        video_ids = []
-        for result in results:
-            video_ids.append(result['id']['videoId'])
-
-        if request.form.get('submit') == 'lucky':
-            return redirect(f'https://www.youtube.com/watch?v={ video_ids[0] }')
-
-        video_params = {
-            'key' : 'YOUTUBE_API_KEY',
-            'id' : ','.join(video_ids),
-            'part' : 'snippet,contentDetails',
-            'maxResults' : 9
-        }
-
-        r = requests.get(video_url, params=video_params)
-        results = r.json()['items']
-        for result in results:
-            video_data = {
-                'id' : result['id'],
-                'url' : f'https://www.youtube.com/watch?v={ result["id"] }',
-                'thumbnail' : result['snippet']['thumbnails']['high']['url'],
-                'duration' : int(parse_duration(result['contentDetails']['duration']).total_seconds() // 60),
-                'title' : result['snippet']['title'],
-            }
-            videos.append(video_data)
-        
-    return render_template('youtube.html', videos=videos)

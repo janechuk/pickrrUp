@@ -9,17 +9,21 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
         integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ=" crossorigin="anonymous" />
     <link rel="stylesheet" href="static/meditate.css">
-    <title>{% block title %} {% endblock %}</title>
+    <title>{% block title %}Meditate{% endblock %}</title>
 </head>
 
 <body>
-    <div class="navbar navbar-light bg-info">
+    <div class="navbar navbar-light bg-info ">
         <div class="navbar-container">
+            {% if session["username"] %}
+            <div class="navbar-brand"><a class="text-white" href={{"/users/{{user.username}}"}}>Dashboard</a></div>
+            {% else %}
             <div class="navbar-brand"><a class="text-white" href="/">PickrrUp</a></div>
+            {% endif %}
             <ul class="nav navbar-nav flex-row float-right">
                 {% if session["username"] %}
-                <li class="nav-item">
-                    <a class="nav-link pr-3 text-white" href="/logout">Logout</a>
+                <li class="nav-item ">
+                    <a class="nav-link pr-3 text-white " href="/logout">Logout</a>
                 </li>
                 {% else %}
                 <li class="nav-item">
@@ -78,6 +82,32 @@
 
         {% endblock %}
     </div>
+
+    <!-- Footer Section -->
+    <footer class=" footer mt-auto py-3 text-center">
+        <div class="container">
+            <h4 class='display-6'>About PickrrUp</h4>
+            <p class='lead'><small></small></p>
+            <hr>
+            <p>“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                et
+                dolore magna
+                aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                commodo
+                consequat.” <br><i>- Jane Chukwuelue</i></p>
+            <hr>
+
+            <span class="text-muted">
+                <h5 class='display-6'>Get In Touch</h5>
+            </span>
+            <a target='_blank' href="https://www.linkedin.com/in/jane-chukwuelue/"><i class="fab fa-linkedin fa-2x"
+                    style="color: teal"></i></a>
+            <a target='_blank' href="https://github.com/janechuk "><i class="fab fa-github-square fa-2x"
+                    style="color: teal"></i></a>
+            <a href="mailto:jane-chuk@live.com"><i class="fas fa-envelope fa-2x" style="color: teal"></i></a>
+        </div>
+    </footer>
+    <!-- Footer Section End -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>

@@ -4,18 +4,58 @@
 {% block content %}
 <h2>{{user.username}}'s Dashboard</h2>
 
-
 <div class="row">
-    <div class="card" style="width: 25rem;">
-        <div class="card-body">
-            <h5 class="card-title"><a href="">{{user.username}}</a></h5>
-            <h4 class="card-title">{{user.email}} </h4>
-            <p class="card-text"> {{user.first_name}} {{user.last_name}}</p>
+    <div class="col-sm-6 ">
+        <div class="card card border-info mb-4">
+            <div class="card-body">
+                <h5 class="card-title">Daily Verse</h5>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <a href="/daily-devotion" class="btn btn-info">Today's Verse</a>
+            </div>
         </div>
     </div>
-
+    <div class="col-sm-6">
+        <div class="card card border-info mb-4">
+            <div class="card-body">
+                <h5 class="card-title">Relax and Meditate</h5>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <a href="/meditate" class="btn btn-info">Meditate</a>
+            </div>
+        </div>
+    </div>
 </div>
-<div class="jumbotron">
+<div class="row">
+    <div class="col-sm-6">
+        <div class="card card border-info mb-4">
+            <div class="card-body">
+                <h5 class="card-title">Inhale & Exhale</h5>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <a href="/breathe" class="btn btn-info">Breathe</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="card card border-info mb-4">
+            <div class="card-body">
+                <h5 class="card-title">Music/Videos</h5>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <a href="/youtube" class="btn btn-info">Videos</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <div class="jumbotron">
+    <div>
+        <div class="card" style="width: 25rem;">
+            <div class="card-body">
+                <h5 class="card-title"><a href="">{{user.username}}</a></h5>
+                <h4 class="card-title">{{user.email}} </h4>
+                <p class="card-text"> {{user.first_name}} {{user.last_name}}</p>
+            </div>
+        </div>
+
+    </div>
     <div class="row">
         <div class="card" style="width: 25rem;">
             <div class="card-body">
@@ -41,6 +81,181 @@
             </div>
         </div>
     </div>
+
+    <hr>
+
+
+    <div>
+        <h3><a href="http://joelosteen.life/category/joel-osteen-daily-devotional">Joel Osteen Devotionals</a> </h3>
+    </div>
+
+    <div>
+        <h3><a href="https://joycemeyer.org/dailydevo">Joyce Meyer Devotionals</a> </h3>
+    </div>
+</div> -->
+
+
+
+<iframe width="850" height="400" src="https://www.youtube.com/embed/oPVte6aMprI" frameborder="0"
+    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<hr>
+
+
+
+<div class="row row-cols-1 row-cols-md-2">
+    <div class="col mb-4">
+        <div class="card h-100">
+            <img src="https://images.unsplash.com/photo-1545558014-8692077e9b5c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60"
+                style="height: 200px;" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title"><a href="https://ministry-to-children.com/" class="card-link">Children</a></h5>
+                <p class="card-text">Train up a child in the way he should go, And when he is old he will not depart
+                    from it. Find free resource to help you tell kids about Jesus. Fun articles, activities and
+                    lessons, all focused on teaching children to know the love and salvation in Jesus Christ!</p>
+            </div>
+        </div>
+    </div>
+    <div class="col mb-4">
+        <div class="card h-100">
+            <img src="https://images.unsplash.com/photo-1549057446-9f5c6ac91a04?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
+                style="height: 200px;" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title"><a href="https://www.boundless.org/" class="card-link">Young Adults</a></h5>
+                <p class="card-text">Young adult years are full of possibilities and choices that shape who we will
+                    become. It’s a season of adulthood that feels boundless. As a ministry of Focus on the Family, the
+                    Boundless community helps you navigate the path
+                    with biblical wisdom and intention.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col mb-4">
+        <div class="card h-100">
+            <img src="https://images.unsplash.com/photo-1582243568365-ff8411fe3c0b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
+                style="height: 200px;" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title"><a href="https://www.seniorlivingministries.org/" class="card-link">Seniors</a>
+                </h5>
+                <p class="card-text">Senior Living Ministries is a Christian ministry that ministers
+                    to, encourages, and challenges senior adults to embrace the fulfilled life God intends for them. The
+                    goal is to support the spiritual vitality of Christian seniors by helping them live the dynamic,
+                    Spirit-filled life that expresses the love of Christ to family, church, and culture.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col mb-4">
+        <div class="card h-100">
+            <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
+                style="height: 200px;" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title"><a href="https://www.focusonthefamily.com/" class="card-link">Family</a></h5>
+                <p class="card-text">Ultimately, we believe that the purpose of life is to know and glorify God through
+                    an authentic relationship with His Son, Jesus Christ. This purpose is lived out first within our own
+                    families then extended, in love, to an increasingly
+                    broken world that desperately needs Him. </p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row row-cols-1 row-cols-md-2">
+    <div class="col mb-4">
+        <div class="card h-100">
+            <img src="https://images.unsplash.com/photo-1512070750041-b9479c107194?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
+                style="height: 200px;" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title"><a
+                        href="https://www.christiancinema.com/what-we-offer/?utm_source=organic_traffic&utm_campaign=new_organic_experiment"
+                        class="card-link">Movies</a></h5>
+                <p class="card-text">Christians are watching more content than ever before. Christian Cinema’s aim has
+                    always been to provide a one-stop shop for consumers with a place to buy Christian and family
+                    movies. You will find the selection and access to movies from Christian Cinema on digital to be
+                    ideal for you and your family at home or when you travel.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col mb-4">
+        <div class="card h-100">
+            <img src="https://images.unsplash.com/photo-1524578271613-d550eacf6090?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
+                style="height: 200px;" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title"><a href="https://www.christianbook.com" class="card-link">Books</a>
+                </h5>
+                <p class="card-text">Christian books play a huge role in personal and spiritual growth. Regardless of
+                    your level of understanding, there will always be a book that will serve your need. If you do not
+                    read Christian books, then you deny yourself a chance to learn more about God, especially how he
+                    acts in this world.Find a Collection of Christian books for all ages. Includes Christian e-books
+                    which are available for free. </p>
+            </div>
+        </div>
+    </div>
+    <div class="col mb-4">
+        <div class="card h-100">
+            <img src="https://images.unsplash.com/photo-1506157786151-b8491531f063?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
+                style="height: 200px;" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title"><a href="https://www.allworship.com" class="card-link">Music</a></h5>
+                <p class="card-text">Gospel music represents the beliefs and ideologies of the Christian faith. By
+                    listening to Christian music, you are highly likely to realize profound spiritual enlighten, which
+                    is essential in growing your faith as a Christian. Enjoy commercial-free worship music in four
+                    formats: contemporary worship, praise & worship, Spanish worship, and instrumental worship. </p>
+            </div>
+        </div>
+    </div>
+    <div class="col mb-4">
+        <div class="card h-100">
+            <img src="https://images.unsplash.com/photo-1543525238-54e3d131f7ca?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
+                style="height: 200px;" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title"><a href="https://www.pray.com.au/" class="card-link">Prayer</a></h5>
+                <p class="card-text">Free daily prayer service, providing you with reflections on the day’s Gospel
+                    readings as well as other articles exploring people’s experiences of God. New reflections each day
+                    on the Gospel readings to help you connect with God in your life. </p>
+            </div>
+        </div>
+    </div>
+</div>
+<hr>
+
+<div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+        <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="https://images.unsplash.com/photo-1579975194233-8a4c97b11f1b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
+                class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>First slide label</h5>
+                <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="https://images.unsplash.com/photo-1437603568260-1950d3ca6eab?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
+                class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>Second slide label</h5>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="https://images.unsplash.com/photo-1555598681-4552041fbfd3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
+                class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>Third slide label</h5>
+                <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+            </div>
+        </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
 </div>
 
 

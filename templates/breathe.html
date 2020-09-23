@@ -14,13 +14,17 @@
 </head>
 
 <body>
-    <div class="navbar navbar-light bg-info">
+    <div class="navbar navbar-light bg-info ">
         <div class="navbar-container">
+            {% if session["username"] %}
+            <div class="navbar-brand"><a class="text-white" href={{"/users/{{user.username}}"}}>Dashboard</a></div>
+            {% else %}
             <div class="navbar-brand"><a class="text-white" href="/">PickrrUp</a></div>
+            {% endif %}
             <ul class="nav navbar-nav flex-row float-right">
                 {% if session["username"] %}
-                <li class="nav-item">
-                    <a class="nav-link pr-3 text-white" href="/logout">Logout</a>
+                <li class="nav-item ">
+                    <a class="nav-link pr-3 text-white " href="/logout">Logout</a>
                 </li>
                 {% else %}
                 <li class="nav-item">
@@ -50,6 +54,7 @@
             <div class="gradient-circle"></div>
         </div>
     </div>
+
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
