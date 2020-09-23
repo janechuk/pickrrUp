@@ -4,18 +4,19 @@ from user import db, connect_db, User
 from flask_debugtoolbar import DebugToolbarExtension
 from forms import RegisterUserForm, LogInUserForm
 import requests
+import os
 
 
 
 app = Flask(__name__)
-
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///PickrrUp'
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'pickrpsecrectkey')
+app.config['SQLALCHEMY_DATABASE_URI'] =  os.environ.get('DATABASE_URL','postgresql:///PickrrUp')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_ECHO'] = True 
 app.config['TESTING'] = True 
-app.config['SECRET_KEY'] = "SECRET!"
 app.config['DEBUG_TB_INTERCEPT_REDIRECTS'] = False
 debug = DebugToolbarExtension(app)
+
 
 connect_db(app)
 
